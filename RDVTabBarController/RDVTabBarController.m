@@ -106,7 +106,9 @@
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
     if ([self selectedViewController]) {
         [[self selectedViewController] willMoveToParentViewController:nil];
+        [[self selectedViewController] viewWillDisappear:YES];
         [[[self selectedViewController] view] removeFromSuperview];
+        [[self selectedViewController] viewDidDisappear:YES];
         [[self selectedViewController] removeFromParentViewController];
     }
     
@@ -115,8 +117,10 @@
     
     [self setSelectedViewController:[[self viewControllers] objectAtIndex:selectedIndex]];
     [self addChildViewController:[self selectedViewController]];
+    [[self selectedViewController] viewWillAppear:YES];
     [[[self selectedViewController] view] setFrame:[[self contentView] bounds]];
     [[self contentView] addSubview:[[self selectedViewController] view]];
+    [[self selectedViewController] viewDidAppear:YES];
     [[self selectedViewController] didMoveToParentViewController:self];
 }
 
