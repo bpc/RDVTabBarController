@@ -265,6 +265,10 @@
     }
 }
 
+- (NSInteger)numberOfLimitedItemsInTabBar:(RDVTabBar *)tabBar  {
+    return [[self delegate] respondsToSelector:@selector(numberOfLimitedItemsInTabBar:)] ? [(id<RDVTabBarDelegate>)[self delegate] numberOfLimitedItemsInTabBar:tabBar] : tabBar.items.count;
+}
+
 @end
 
 #pragma mark - UIViewController+RDVTabBarControllerItem

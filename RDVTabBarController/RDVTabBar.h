@@ -37,6 +37,12 @@
  */
 - (void)tabBar:(RDVTabBar *)tabBar didSelectItemAtIndex:(NSInteger)index;
 
+@optional
+/**
+ * Asks the delegate if the specified count of items should be presented.
+ */
+- (NSInteger)numberOfLimitedItemsInTabBar:(RDVTabBar *)tabBar;
+
 @end
 
 @interface RDVTabBar : UIView

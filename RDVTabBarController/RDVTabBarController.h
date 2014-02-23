@@ -77,6 +77,11 @@
  */
 - (void)tabBarController:(RDVTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
 
+/**
+ * Asks the delegate whether the specified view controller should be made active.
+ */
+- (BOOL)tabBarController:(RDVTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController;
+
 @end
 
 @interface UIViewController (RDVTabBarControllerItem)

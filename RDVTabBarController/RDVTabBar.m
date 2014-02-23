@@ -54,9 +54,13 @@
     [[self backgroundView] setFrame:CGRectMake(0, frameSize.height - minimumContentHeight,
                                             frameSize.width, frameSize.height)];
     
-    [self setItemWidth:roundf((frameSize.width - [self contentEdgeInsets].left -
-                               [self contentEdgeInsets].right) / [[self items] count])];
+    NSInteger itemsCount = [[self items] count];
+    if ([[self delegate] respondsToSelector:@selector(numberOfLimitedItemsInTabBar:)]) {
+        itemsCount = [[self delegate] numberOfLimitedItemsInTabBar:self];
+    }
     
+    [self setItemWidth:roundf((frameSize.width - [self contentEdgeInsets].left -
+                               [self contentEdgeInsets].right) / itemsCount)];
     NSInteger index = 0;
     
     // Layout items
