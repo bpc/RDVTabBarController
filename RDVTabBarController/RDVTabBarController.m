@@ -237,7 +237,8 @@
             return NO;
         }
     }
-    
+
+    /* 2014.07.14 : 현재 선택된 탭에서 같은 탭 선택했을때 처리를 BEAT의 BPMainViewController에서 하게 한다.
     if ([self selectedViewController] == [self viewControllers][index]) {
         if ([[self selectedViewController] isKindOfClass:[UINavigationController class]]) {
             UINavigationController *selectedController = (UINavigationController *)[self selectedViewController];
@@ -249,6 +250,7 @@
         
         return NO;
     }
+     */
     
     return YES;
 }
