@@ -104,7 +104,7 @@
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
-    if ([self selectedViewController]) {
+    if ([self selectedViewController] && selectedIndex != _selectedIndex) {
         [[self selectedViewController] willMoveToParentViewController:nil];
         [[self selectedViewController] viewWillDisappear:YES];
         [[[self selectedViewController] view] removeFromSuperview];
