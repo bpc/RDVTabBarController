@@ -96,7 +96,7 @@
     
     _items = [items copy];
     for (RDVTabBarItem *item in items) {
-        [item addTarget:self action:@selector(tabBarItemWasSelected:) forControlEvents:UIControlEventTouchDown];
+        [item addTarget:self action:@selector(tabBarItemWasSelected:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:item];
     }
 }
